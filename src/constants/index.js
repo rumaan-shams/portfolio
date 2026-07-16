@@ -41,18 +41,18 @@ export const navLinks = [
 export const socialLinks = [
   {
     name: "Instagram",
-    url: "https://instagram.com/riju_naskar007",
-    shortLabel: "@riju_naskar007",
+    url: "https://instagram.com/rumaanshams",
+    shortLabel: "rumaanshams",
   },
   {
     name: "Discord",
-    url: "https://discord.com/users/destroyer_will.destroy",
-    shortLabel: "destroyer_will.destroy",
+    url: "https://discord.com/users/evilghostt_9",
+    shortLabel: "Evil Ghost",
   },
   {
     name: "GitHub",
-    url: "https://github.com/riju0124",
-    shortLabel: "riju0124",
+    url: "https://github.com/rumaan-shams",
+    shortLabel: "Rumaan",
   },
 ];
 
