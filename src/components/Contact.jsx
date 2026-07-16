@@ -31,7 +31,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/xgopqllg", {
+      const response = await fetch("https://formspree.io/f/xkodolla", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
