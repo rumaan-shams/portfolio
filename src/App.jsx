@@ -2,7 +2,18 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, WelcomeScreen } from "./components";
+import {
+  About,
+  Contact,
+  Experience,
+  Feedbacks,
+  Hero,
+  Navbar,
+  Tech,
+  Works,
+  StarsCanvas,
+  WelcomeScreen,
+} from "./components";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
 const THEME_VERSION_KEY = "portfolio-theme-version";
@@ -10,8 +21,15 @@ const THEME_VERSION = "2";
 const DEFAULT_THEME = "earth";
 
 const App = () => {
-  const [showWelcome, setShowWelcome] = useState(true);
-  const [showPortfolio, setShowPortfolio] = useState(false);
+  // Show intro only once per browser tab/session
+  const [showWelcome, setShowWelcome] = useState(() => {
+    return !sessionStorage.getItem("introPlayed");
+  });
+
+  const [showPortfolio, setShowPortfolio] = useState(() => {
+    return !!sessionStorage.getItem("introPlayed");
+  });
+
   const [theme, setTheme] = useState(() => {
     const savedVersion = localStorage.getItem(THEME_VERSION_KEY);
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
@@ -41,29 +59,36 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className='relative z-0 text-white'>
+      <div className="relative z-0 text-white">
         <AnimatePresence>
           {showWelcome && (
             <WelcomeScreen
               onStart={() => {
+                sessionStorage.setItem("introPlayed", "true");
                 setShowPortfolio(true);
                 setShowWelcome(false);
               }}
             />
           )}
         </AnimatePresence>
+
         {showPortfolio && (
           <>
-            <div className='hero-shell bg-cover bg-no-repeat bg-center'>
-              <Navbar currentTheme={theme} setCurrentTheme={setTheme} />
+            <div className="hero-shell bg-cover bg-no-repeat bg-center">
+              <Navbar
+                currentTheme={theme}
+                setCurrentTheme={setTheme}
+              />
               <Hero currentTheme={theme} />
             </div>
+
             <About />
             <Experience />
             <Tech />
             <Works />
             <Feedbacks />
-            <div className='relative z-0 section-wash'>
+
+            <div className="relative z-0 section-wash">
               <Contact />
               <StarsCanvas />
             </div>
@@ -72,6 +97,6 @@ const App = () => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
