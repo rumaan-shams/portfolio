@@ -55,7 +55,11 @@ const Navbar = ({ currentTheme, setCurrentTheme }) => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <img
+  src={logo}
+  alt="Rumaan Logo"
+  className="w-12 h-12 rounded-full object-cover border-2 border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.8)] transition-all duration-300 hover:scale-110"
+/>
           <p className='text-white text-[18px] font-bold cursor-pointer flex tracking-[-0.02em]'>
             Rumaan &nbsp;
             <span className='sm:block hidden theme-soft-text'> | developer portfolio</span>
