@@ -1215,19 +1215,38 @@ h6 {
 }
 
 .logo-wrapper{
-  width:220px;
-  margin:auto;
-  position:relative;
-}
+    width:220px;
+    height:220px;
 
+    margin:auto;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 .welcome-logo{
-  width:100%;
-  display:block;
-  position:relative;
-  z-index:2;
-  filter:
-      drop-shadow(0 0 20px rgba(255,180,40,.25))
-      drop-shadow(0 0 45px rgba(255,180,40,.18));
+    width:180px;
+    height:180px;
+
+    object-fit:cover;
+
+    display:block;
+    position:relative;
+    z-index:2;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:4px solid rgba(255,195,70,.9);
+
+    box-shadow:
+        0 0 18px rgba(255,190,60,.8),
+        0 0 40px rgba(255,190,60,.35);
+
+    filter:none;
 }
 
 .logo-glow{
