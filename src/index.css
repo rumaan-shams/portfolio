@@ -1426,3 +1426,46 @@ padding:15px 35px;
 }
 
 }
+.gold-ring{
+    position:absolute;
+
+    width:205px;
+    height:205px;
+
+    border-radius:50%;
+
+    background:conic-gradient(
+        from 0deg,
+        #6b4d00,
+        #d4af37,
+        #ffe27a,
+        #d4af37,
+        #6b4d00
+    );
+
+    animation:goldRotate 8s linear infinite;
+
+    z-index:1;
+}
+.gold-ring::before{
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border-radius:50%;
+
+    background:#090909;
+}
+@keyframes goldRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
